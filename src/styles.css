@@ -55,7 +55,6 @@ button {
   border-color: #fded38;
   font-style:italic;
   color: #ffffff;
-
 }
 
 
@@ -65,7 +64,7 @@ button {
   border: 3px solid #1719b8;
   float: left;
   font-size: 24px;
-  font-weight: bold;
+  
   line-height: 34px;
   height: 34px;
   margin-right: -1px;

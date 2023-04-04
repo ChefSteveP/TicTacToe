@@ -18,8 +18,7 @@ function Board({XIsNext,squares, onPlay}) {
     const nextSquares = squares.slice();
     if (XIsNext){
       nextSquares[i] = 'X';
-    }
-    else{
+    } else {
       nextSquares[i] = 'O';
     }
     onPlay(nextSquares);
@@ -31,6 +30,20 @@ function Board({XIsNext,squares, onPlay}) {
     status = "Winner: " + winner;
   } else {
     status = "Next Player: " + (XIsNext ? 'X':'O');
+  }
+
+
+  //Checks if the spaces are all full
+  let isFull = true;
+  for(let i = 0; i < squares.length; i++){
+    if(!squares[i]){
+      isFull = false;
+    }
+  }
+
+  //If there is no winner and all moves have been played, then draw
+  if(isFull && !winner){
+    status = "Draw: Rematch!"
   }
 
 
@@ -90,7 +103,7 @@ export default function Game() {
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }
-  
+
   function jumpTo(nextMove){
     setCurrentMove(nextMove);
   }
